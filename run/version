@@ -1,0 +1,16 @@
+#! /usr/bin/env node
+
+
+var
+	fs  = require('fs'),
+	pkg = require('../package.json'),
+	version = "'"+ pkg.version +"'",
+	filename = __dirname + '/../src/index.js',
+	regexp = new RegExp("/\\*~ v \\*/'(.*?)'/\\*~ /v \\*/");
+
+var
+	content = fs.readFileSync(filename, { encoding: 'utf-8' });
+
+content = content.replace(regexp, version);
+
+fs.writeFileSync(filename, content, { encoding: 'utf-8' });
