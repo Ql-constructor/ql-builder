@@ -18,6 +18,12 @@
 	"main": "src/",
 	"scripts":
 	{
+		"test": "run/tests",
+
 		"prepublish": "run/version"
+	},
+	"devDependencies":
+	{
+		"jasmine-node": "~2"
 	}
 }

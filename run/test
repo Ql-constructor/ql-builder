@@ -1,0 +1,6 @@
+#! /bin/sh
+
+cd $(dirname $0)
+cd '..'
+
+./node_modules/.bin/jasmine-node --verbose --matchAll tests/src/${1}.test.js
