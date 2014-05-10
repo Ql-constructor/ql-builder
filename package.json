@@ -1,0 +1,22 @@
+{
+	"name": "ql-builder",
+	"version": "0.1.0",
+	"description": "Node.js SQL-query builder",
+
+	"keywords": [
+		"sql", "sql-query", "query", "dsl", "sql-builder",
+		"query-builder", "builder", "sql-dsl"
+	],
+
+	"author": "StreetStrider <teamfortresslife@gmail.com>",
+	"license": "MIT",
+
+	"homepage":           "https://github.com/Ql-constructor/ql-builder",
+	"bugs":      { "url": "https://github.com/Ql-constructor/ql-builder/issues" },
+	"repository": {"url":   "git://github.com/Ql-constructor/ql-builder", "type": "git" },
+
+	"main": "src/",
+	"scripts":
+	{
+	}
+}
