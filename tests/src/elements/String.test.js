@@ -2,7 +2,7 @@
 
 
 var
-	String = require('../../src/').elements.String;
+	String = require('../../../src/').elements.String;
 
 describe('String', function ()
 {

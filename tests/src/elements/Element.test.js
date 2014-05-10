@@ -2,7 +2,7 @@
 
 
 var
-	Element = require('../../src/').elements.Element;
+	Element = require('../../../src/').elements.Element;
 
 describe('Element', function ()
 {

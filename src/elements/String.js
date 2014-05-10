@@ -4,7 +4,7 @@
 module.exports = String;
 
 var
-	inherit = require('./util/inherit'),
+	inherit = require('./../util/inherit'),
 	Element = require('./Element');
 
 function String (string)
