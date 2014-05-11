@@ -10,12 +10,16 @@ describe('Element', function ()
 	{
 		it('throws error', function ()
 		{
-			expect(function ()
+			try
 			{
 				var element = new Element;
 				element.toSQL();
-			})
-			.toThrow(Element.NoRepresentationError());
+			} catch (e)
+			{
+				expect(e).toEqual(Element.NoRepresentationError());
+				return;
+			}
+			throw new Error;
 		});
 	});
 });

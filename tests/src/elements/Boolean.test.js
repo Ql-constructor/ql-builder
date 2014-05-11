@@ -33,11 +33,15 @@ describe('Boolean', function ()
 
 			function doTestOtherLogicValue (value)
 			{
-				expect(function ()
+				try
 				{
 					Boolean.logic(value);
-				})
-				.toThrow(Boolean.NotALogicValue());
+				} catch (e)
+				{
+					expect(e).toEqual(Boolean.NotALogicValue({ value: value }));
+					return;
+				}
+				throw new Error;
 			}
 		});
 	});
@@ -74,13 +78,16 @@ describe('Boolean', function ()
 
 			function doTestOtherLogicValue (value)
 			{
-				var b = new Boolean(value);
-
-				expect(function ()
+				try
 				{
+					var b = new Boolean(value);
 					b.toSQL();
-				})
-				.toThrow(Boolean.NotALogicValue());
+				} catch (e)
+				{
+					expect(e).toEqual(Boolean.NotALogicValue({ value: value }));
+					return;
+				}
+				throw new Error;
 			}
 		});
 
