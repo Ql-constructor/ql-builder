@@ -4,5 +4,6 @@
 module.exports =
 {
 	Element: require('./Element'),
-	String:  require('./String')
+	String:  require('./String'),
+	Boolean:  require('./Boolean'),
 };
