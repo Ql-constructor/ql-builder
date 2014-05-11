@@ -15,7 +15,7 @@ describe('Element', function ()
 				var element = new Element;
 				element.toSQL();
 			})
-			.toThrow(Element.NoRepresentationError);
+			.toThrow(Element.NoRepresentationError());
 		});
 	});
 });

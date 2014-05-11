@@ -37,7 +37,7 @@ describe('Boolean', function ()
 				{
 					Boolean.logic(value);
 				})
-				.toThrow(Boolean.NotALogicValue);
+				.toThrow(Boolean.NotALogicValue());
 			}
 		});
 	});
@@ -80,7 +80,7 @@ describe('Boolean', function ()
 				{
 					b.toSQL();
 				})
-				.toThrow(Boolean.NotALogicValue);
+				.toThrow(Boolean.NotALogicValue());
 			}
 		});
 

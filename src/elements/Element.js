@@ -3,6 +3,9 @@
 
 module.exports = Element;
 
+var
+	error   = require('./../util/error');
+
 function Element ()
 {
 
@@ -10,10 +13,13 @@ function Element ()
 
 Element.prototype.toSQL = function Element__toSQL ()
 {
-	throw Element.NoRepresentationError;
+	throw Element.NoRepresentationError();
 };
 
-Element.NoRepresentationError = new Error('Element has no adequate SQL representation.');
+Element.NoRepresentationError = error.ErrorConstructor(
+	'Element has no adequate SQL representation.',
+	'no_representation_error'
+);
 
 Element.prototype.toString = function Element__toString ()
 {

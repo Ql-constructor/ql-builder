@@ -5,6 +5,7 @@ module.exports = Boolean;
 
 var
 	inherit = require('./../util/inherit'),
+	error   = require('./../util/error'),
 	Element = require('./Element');
 
 function Boolean (value)
@@ -40,11 +41,14 @@ Boolean.logic = function Boolean_logic (value)
 	}
 	else
 	{
-		throw Boolean.NotALogicValue;
+		throw Boolean.NotALogicValue({ value: value });
 	}
 };
 
-Boolean.NotALogicValue = new Error('Supplied value is not representable as SQL boolean.');
+Boolean.NotALogicValue = error.ErrorConstructor(
+	'Supplied value is not representable as SQL boolean.',
+	'not_a_logic_value'
+);
 
 Boolean.TRUE    = function Boolean_TRUE    () { return new Boolean(true);  };
 Boolean.FALSE   = function Boolean_FALSE   () { return new Boolean(false); };
