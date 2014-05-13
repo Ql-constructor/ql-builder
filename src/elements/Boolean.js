@@ -17,7 +17,7 @@ inherit(Boolean, Element);
 
 Boolean.prototype.toSQL = function Boolean__toSQL ()
 {
-	return Boolean.logic(this.value);
+	return Boolean.toSQL(this.value);
 };
 
 var
@@ -25,7 +25,7 @@ var
 	SQL_FALSE   = 'FALSE',
 	SQL_UNKNOWN = 'UNKNOWN';
 
-Boolean.logic = function Boolean_logic (value)
+Boolean.toSQL = function Boolean_toSQL (value)
 {
 	if (value === true)
 	{

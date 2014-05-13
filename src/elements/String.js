@@ -17,10 +17,10 @@ inherit(String, Element);
 
 String.prototype.toSQL = function String__toSQL ()
 {
-	return String.stringy(this.value);
+	return String.toSQL(this.value);
 };
 
-String.stringy = function String_stringy (value)
+String.toSQL = function String_toSQL (value)
 {
 	if (typeof value !== 'string')
 	{

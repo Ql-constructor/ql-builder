@@ -6,14 +6,14 @@ var
 
 describe('Number', function ()
 {
-	describe('numeric', function ()
+	describe('static toSQL', function ()
 	{
 		it('throws `NotANumber` if non-numeric value', function ()
 		{
 			try
 			{
 				var value = 'a';
-				Number.numeric(value);
+				Number.toSQL(value);
 			} catch (e)
 			{
 				expect(e).toEqual(Number.NotANumber({ value: value }));
@@ -28,7 +28,7 @@ describe('Number', function ()
 			try
 			{
 				value = Infinity;
-				Number.numeric(value);
+				Number.toSQL(value);
 			} catch (e)
 			{
 				expect(e).toEqual(Number.NotAFiniteNumber({ value: value }));
@@ -39,7 +39,7 @@ describe('Number', function ()
 			try
 			{
 				value = NaN;
-				Number.numeric(value);
+				Number.toSQL(value);
 			} catch (e)
 			{
 				expect(e).toEqual(Number.NotAFiniteNumber({ value: value }));
@@ -50,9 +50,9 @@ describe('Number', function ()
 
 		it('outputs numeric string', function ()
 		{
-			expect(Number.numeric(17)).toBe('17');
-			expect(Number.numeric(0.1)).toBe('0.1');
-			expect(Number.numeric(1e-15)).toBe('1e-15');
+			expect(Number.toSQL(17)).toBe('17');
+			expect(Number.toSQL(0.1)).toBe('0.1');
+			expect(Number.toSQL(1e-15)).toBe('1e-15');
 		});
 	});
 

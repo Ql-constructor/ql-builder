@@ -17,10 +17,10 @@ inherit(Number, Element);
 
 Number.prototype.toSQL = function Number__toSQL ()
 {
-	return Number.numeric(this.value);
+	return Number.toSQL(this.value);
 };
 
-Number.numeric = function Number_numeric (value)
+Number.toSQL = function Number_toSQL (value)
 {
 	if (typeof value !== 'number')
 	{

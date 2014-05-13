@@ -25,16 +25,16 @@ describe('String', function ()
 		});
 	});
 
-	describe('stringy', function ()
+	describe('static toSQL', function ()
 	{
 		it('outputs string', function ()
 		{
-			expect(String.stringy('abc')).toBe("'abc'");
+			expect(String.toSQL('abc')).toBe("'abc'");
 		});
 
 		it('escapes quotes', function ()
 		{
-			expect(String.stringy("a'; SELECT 1, ''; SELECT 2;")).toBe("'a''; SELECT 1, ''''; SELECT 2;'");
+			expect(String.toSQL("a'; SELECT 1, ''; SELECT 2;")).toBe("'a''; SELECT 1, ''''; SELECT 2;'");
 		});
 
 		it('throws `NotAString` if another value', function ()
@@ -42,7 +42,7 @@ describe('String', function ()
 			try
 			{
 				var value = 1;
-				String.stringy(value);
+				String.toSQL(value);
 			} catch (e)
 			{
 				expect(e).toEqual(String.NotAString({ value: value }));

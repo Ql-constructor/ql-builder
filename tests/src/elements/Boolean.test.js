@@ -7,24 +7,24 @@ describe('Boolean', function ()
 {
 	var Boolean = require('../../../src/').elements.Boolean;
 
-	describe('logic', function ()
+	describe('static toSQL', function ()
 	{
 		it('works with true', function ()
 		{
-			expect(Boolean.logic(true)).toBe('TRUE');
-			expect(Boolean.logic(true)).toBe(Boolean.TRUE().toSQL());
+			expect(Boolean.toSQL(true)).toBe('TRUE');
+			expect(Boolean.toSQL(true)).toBe(Boolean.TRUE().toSQL());
 		});
 
 		it('works with false', function ()
 		{
-			expect(Boolean.logic(false)).toBe('FALSE');
-			expect(Boolean.logic(false)).toBe(Boolean.FALSE().toSQL());
+			expect(Boolean.toSQL(false)).toBe('FALSE');
+			expect(Boolean.toSQL(false)).toBe(Boolean.FALSE().toSQL());
 		});
 
 		it('works with null', function ()
 		{
-			expect(Boolean.logic(null)).toBe('UNKNOWN');
-			expect(Boolean.logic(null)).toBe(Boolean.UNKNOWN().toSQL());
+			expect(Boolean.toSQL(null)).toBe('UNKNOWN');
+			expect(Boolean.toSQL(null)).toBe(Boolean.UNKNOWN().toSQL());
 		});
 
 		it('throws `NotALogicValue` if another value', function ()
@@ -35,7 +35,7 @@ describe('Boolean', function ()
 			{
 				try
 				{
-					Boolean.logic(value);
+					Boolean.toSQL(value);
 				} catch (e)
 				{
 					expect(e).toEqual(Boolean.NotALogicValue({ value: value }));
