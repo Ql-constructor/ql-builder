@@ -22,6 +22,10 @@
 
 		"prepublish": "run/version"
 	},
+	"dependencies":
+	{
+		"lodash": "^2.4"
+	},
 	"devDependencies":
 	{
 		"jasmine-node": "~2"

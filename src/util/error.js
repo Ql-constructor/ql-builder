@@ -2,7 +2,8 @@
 
 
 var
-	inherit = require('./inherit');
+	inherit = require('./inherit'),
+	extend  = require('lodash').extend;
 
 function BuilderError (message, code, data)
 {
@@ -13,10 +14,7 @@ function BuilderError (message, code, data)
 
 	if (data)
 	{
-		Object.keys(data).forEach(function (key)
-		{
-			this[key] = data[key];
-		}, this);
+		extend(this, data);
 	}
 }
 
