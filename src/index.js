@@ -5,5 +5,7 @@ module.exports =
 {
 	version: /*~ v */'0.0.0'/*~ /v */,
 
-	elements: require('./elements')
+	elements: require('./elements'),
+
+	reserved: require('./reserved')
 };

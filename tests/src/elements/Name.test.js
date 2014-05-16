@@ -32,9 +32,21 @@ describe('Name', function ()
 			expect(Name.toSQL('abc')).toBe('abc');
 		});
 
-		it('escapes quotes if so', function ()
+		it('quotes & escapes quotes if so', function ()
 		{
 			expect(Name.toSQL('a"bc')).toBe('"a""bc"');
+		});
+
+		it('quotes if not a regular SQL-identifier', function ()
+		{
+			expect(Name.toSQL('a#b$c')).toBe('a#b$c');
+			expect(Name.toSQL('a b_d/e')).toBe('"a b_d/e"');
+		});
+
+		it('quotes if matches with keyword', function ()
+		{
+			expect(Name.toSQL('select')).toBe('"select"');
+			expect(Name.toSQL('SELECT')).toBe('"SELECT"');
 		});
 
 		it('throws `NotANameString` if another value', function ()
@@ -64,6 +76,22 @@ describe('Name', function ()
 		{
 			var name = new Name('a"bc');
 			expect(name.toSQL()).toBe('"a""bc"');
+		});
+
+		it('quotes if not a regular SQL-identifier', function ()
+		{
+			var name = new Name('a#b$c');
+			expect(name.toSQL()).toBe('a#b$c');
+			var name = new Name('a b_d/e');
+			expect(name.toSQL()).toBe('"a b_d/e"');
+		});
+
+		it('quotes if matches with keyword', function ()
+		{
+			var name = new Name('select');
+			expect(name.toSQL('select')).toBe('"select"');
+			var name = new Name('SELECT');
+			expect(name.toSQL('SELECT')).toBe('"SELECT"');
 		});
 
 		it('throws `NotANameString` if another value', function ()
