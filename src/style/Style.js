@@ -35,10 +35,10 @@ Style.prototype.set = function Style__set (name, value)
 	this.styles[name] = value;
 };
 
-Style.prototype.succeed = function Style__succeed (style)
+Style.prototype.succeed = function Style__succeed (parent)
 {
-	Style.assertType(style);
-	return new Style(_.extend({}, style.styles, this.styles));
+	Style.assertType(parent);
+	return new Style(_.extend({}, parent.styles, this.styles));
 };
 
 Style.assertType = function Style_assertType (style)
